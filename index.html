@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Website</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="bootstrap-4.6.1-dist/css/bootstrap.min.css">
+
+</head>
+<body>
+<!--nav-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.html">
+      <img src="images/LOGO3.png" alt="" height="60px" width="40px">
+       <span class="text-uppercase font-weight-lighter <!--text-monospace--> ml-2">Haya</span>
+    </a>
+    <div class="order-lg-2">
+     
+      </button> 
+      <div  class="btn position-relative border-0 text-capitalize font-weight-bold" id="user-btn" data-toggle="modal" data-target="#myModal">
+        <i id="user-icon" class="fas fa-user"></i>
+      </div>
+      <div  class="btn position-relative mx-3" >
+        <i class="fas fa-search"></i>
+        <!-- <span class="position-absolute top-0 start-100 translate-middle badge badge-primary">5</span> -->
+      </div>
+      <div  class="btn position-relative shopping-cart">
+        <div class="sum-prices">
+        <i class="fas fa-shopping-cart shoppingCartButton"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge badge-primary" id="sum-prices"></span>
+      </div>
+    </div> 
+    
+   
+    
+       
+    </div>
+    <button class="navbar-toggler border-0 " type="button" data-toggle="collapse" data-target="#navbarMenue" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse order-lg-1" id="navbarMenue">
+      <ul class="navbar-nav mx-auto text-center">
+        <li class="nav-item px-2 py-2">
+          <a class="nav-link text-uppercase" href="index.html">Home</a>
+        </li>
+        <li class="nav-item px-2 py-2">
+          <a class="nav-link text-uppercase" href="products.html">shop</a>
+        </li>
+        <li class="nav-item px-2 py-2">
+          <a class="nav-link text-uppercase" href="#blogs">blog</a>
+        </li>
+        <li class="nav-item px-2 py-2">
+          <a class="nav-link text-uppercase" href="#about us">About</a>
+        </li>
+        <li class="nav-item px-2 py-2 border-0">
+          <a class="nav-link text-uppercase" href="#contact">contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--cart-->
+  <div class="producstOnCart hide">
+    <div class="overlay"></div>
+    <div class="top">
+        <button id="closeButton">
+            <i class="fas fa-times-circle"></i>
+        </button>
+        <h3 class="font-weight-bold text-light">Cart</h3>
+    </div>
+    <ul id="buyItems">
+        <h4 class="text-white text-center empty">Your shopping cart is empty</h4>
+        <!-- <li class="buyItem">
+<img src="Images/producs-images/Mobiles/galaxynote10.png">
+<div>
+  <h5>Products Name</h5>
+  <h6>$199</h6>
+  <div>
+    <button>-</button>
+    <span class="countOfProduct">1</span>
+    <button>+</button>
+  </div>
+</div>
+</li> -->
+    </ul>
+    <button class="font-weight-bold btn clearCart hidden">Clear cart</button>
+    <button class="font-weight-bold btn checkout hidden">Check out</button>
+</div>
+  <!---->
+</nav>
+<!--end  of nav-->
+<!--modal-->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header ">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        <div class="button-box d-flex">
+          <div id="btn"></div>
+          <button type="button" class="toggle-btn" onclick="loginSide()">Log In</button>
+          <button type="button" class="toggle-btn" onclick="registerSide()">Register</button>
+          
+      </div>
+      <div class="social-icons">
+         <ul>
+             <i class="fab fa-facebook"></i>
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-twitter"></i>
+          </ul>
+         
+      </div>
+      </div>
+                                          
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form id="login" class="input-group">
+          <input type="text" id="name-login" class="input-field" placeholder="User Id" required>
+          <input type="text" id="pass-login" class="input-field" placeholder="Enter Password" required>
+          <input type="checkbox" class="check-box"><span>Remember Password</span>
+          <button type="submit" id="btn-login" class="submit-btn">Log In</button>
+     </form>
+     <form id="register" class="input-group">
+      <input type="text" id="name-reg" class="input-field" placeholder="User Id" required>
+      <input type="email" id="email-reg" class="input-field" placeholder="Email Id" required>
+     
+      <input type="text" id="pass-reg" class="input-field" placeholder="Enter Password" required>
+      <input type="checkbox" class="check-box"><span>I agree to the terms & condition</span>
+      <button type="submit" id="btn-reg" class="submit-btn">Register</button>
+ </form>
+      </div>
+      
+     
+     
+      
+    </div>
+  </div>
+</div>
+<!--end of modal-->
+
+
+<!--header-->
+<header id="header" class="vh-100">
+  <div class="container-fluid p-0" >
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" class="btn-span" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" 
+          aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" class="btn-span" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+      <button type="button" class="btn-span" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      
+
+  </div>
+   
+   
+   
+  <div class="carousel-inner">
+    <div class="carousel-item active position-relative">
+      <img src="images/bg1-home.jpg" class="d-block w-100 " height="730px" alt="pic1">
+      <div class="carousel-caption part1">
+        <div class="d-flex flex-row" >
+        <h3 class=" title1 text-uppercase">SkinCare</h3>&nbsp;&nbsp;
+        <span class="pt-4 text-secondary ">Products.</span>
+        </div>
+        <br>
+        <h1 class="text-capitalize">with us &nbsp;...! </h1>
+        <h1 class="text-capitalize">you will be so pretty</h1>
+        <br>
+        <button>shop now</button>
+      
+    </div>
+  
+
+    </div>
+    <div class="carousel-item ">
+      <img src="images/bg-home.jpg" class="d-block w-100" height="730px"  alt="pic2">
+      <div class="carousel-caption  part2">
+      <h3 class="title2 text-uppercase">30% Off</h3>&nbsp;&nbsp;
+      <h1 class="text-capitalize">save your money </h1>
+      <br>
+      <button>shop now</button>
+      </div>
+    </div>
+
+    
+    <div class="carousel-item ">
+      <img src="images/b .jpg" class="d-block w-100" height="730px" alt="pic3">
+      <div class="carousel-caption part4">
+      <h3 class=" title4 text-uppercase">are you looking to get more youthful skin</h3>&nbsp;&nbsp;
+      <br>
+      <button>shop now</button>
+      </div>
+    </div>
+
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+  data-bs-slide="prev">
+  <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+  <span class="visually-hidden"></span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+  data-bs-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="visually-hidden"></span>
+</button>
+  </div>
+</header>
+<!--end of header-->
+<!--features-->
+<section id ="features">
+<div class="content">
+  <h2 class="text-center position-absolute text-capitalize pt-5">give your skin a bright <br> look ...<span class="badge badge-secondary"></span></h2>
+  </div>
+  <div class="feature-content">
+    <img src="images/icon7.png">
+    <img src="images/icon1.png">
+    <img src="images/icon2.png">
+    <img src="images/icon3.png">
+    <img src="images/icon6.png">
+    <img src="images/icon5.png">
+    <img src="images/icon8.png">
+  </div> 
+  </div> 
+</section>
+<!--end of features-->
+
+<!--type of products-->
+<section id="typeOfCollection" class="">
+  <div class="container-fluid vh-100 mt-5 p-0">
+    <h2 class="text-center text-dark py-5 text-capitalize">what is in our store </h2>
+    <div class="cards-type">
+    <div class="card-type">
+      <span class="position-absolute text-secondary text-capitalize">Face care</span>
+      <div class="img-card">
+        <img src="images/wepik-photo-mode-202271-16848.png" alt="">
+      </div>
+      <div class="content text-secondary">
+        <h2> face skin care</h2>
+        <p><em> ipsum dolor sit amet consectetur adipisicing elit. Voluptate debitis nulla itaque distinctio. </em></p>
+      </div>
+    </div>
+
+    <div class="card-type">
+      <span class="position-absolute text-secondary text-capitalize">hair care</span>
+      <div class="img-card">
+        <img src="images/beauty-portrait-ginger-woman-with-flower-hair-sitting-by-mirror-table-with-bottle-lotion-while-looking-away.jpg" alt="">
+      </div>
+      <div class="content text-secondary">
+        <h2> Hair care</h2>
+        <p><em> ipsum dolor sit amet consectetur adipisicing elit. Voluptate debitis nulla itaque distinctio. </em></p>
+      </div>
+    </div>
+
+    <div class="card-type">
+      <span class="position-absolute text-secondary text-capitalize">body care</span>
+      <div class="img-card">
+        <img src="images/portrait-profile-beautiful-young-woman-having-fresh-skin-posing-showing-product-her-palm-copy-space.jpg" alt="">
+        <!-- <img src="images/beauty-portrait-ginger-woman-with-flower-hair-sitting-by-mirror-table-with-bottle-lotion-while-looking-away.jpg" alt=""> -->
+      </div>
+      <div class="content text-secondary">
+        <h2> Body care</h2>
+        <p><em> ipsum dolor sit amet consectetur adipisicing elit. Voluptate debitis nulla itaque distinctio. </em></p>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+</section>
+
+<!--end type of products-->
+
+
+<!--collection-->
+<section id="collection" class="">
+  <div class="container-fluid mt-5"> 
+    <h2 class="text-center pt-5">New Collection <span class="badge badge-secondary"></span></h2>
+
+    <div class="collection-list p-4 row">
+      <div class="col-md-6 col-lg-4 col-xl-3 d-flex align-items-center justify-content-center">
+  
+      <div class="collection-img mt-4 position-relative ">
+        <img src="images/11429303-3774901904881532 (1)_prev_ui.png" class="w-100" height="200px;">
+        <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+        <span class="sale position-absolute text-white d-flex align-items-center justify-content-center">
+        
+        <i class="fas fa-shopping-cart text-secondary addToCart"data-product-id="1"></i></span>
+        <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+        <!-- <span class="sale1 position-absolute"><img src="images/sale (1)_prev_ui.png" width="20px" height="20px"></span> -->
+        <div class="text-center">
+          <div class="rating mt-2">
+            <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+            <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+            <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+            <span class="text-white"><i class="fas fa-star"></i></span>
+            <span class="text-white"><i class="fas fa-star"></i></span>
+
+          </div>
+          <p class="productName text-capitalize my-1">face serum</p>
+          <span class=" font-weight-bold">$</span><span class="priceValue font-weight-bold">22.5</span>
+        </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 col-xl-3 d-flex align-items-center justify-content-center">
+  
+        <div class="collection-img mt-4 position-relative ">
+          <img src="images/23981526601_prev_ui.png" class="w-100" height="200px;">
+          <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+          <span class="sale position-absolute text-white d-flex align-items-center justify-content-center">
+            
+       <i class="fas fa-shopping-cart text-secondary addToCart"data-product-id="2"></i></span>
+          <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+          
+          <div class="text-center">
+            <div class="rating mt-2">
+              <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+              <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+              <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+              <span class="text-white"><i class="fas fa-star"></i></span>
+              <span class="text-white"><i class="fas fa-star"></i></span>
+
+            </div>
+            <p class="productName text-capitalize my-1">conditioner cream</p>
+            <span class=" font-weight-bold">$</span><span class="priceValue font-weight-bold">22.5</span>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3 d-flex align-items-center justify-content-center">
+  
+          <div class="collection-img mt-4 position-relative ">
+            <img src="images/beauty-cream.png" class="w-100" height="200px;">
+            <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+            <span class="sale position-absolute text-white d-flex align-items-center justify-content-center">
+              
+              <i class="fas fa-shopping-cart text-secondary addToCart"data-product-id="3"></i></span>
+            <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+            
+            <div class="text-center">
+              <div class="rating mt-2">
+                <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                <span class="text-white"><i class="fas fa-star"></i></span>
+                <span class="text-white"><i class="fas fa-star"></i></span>
+  
+              </div>
+              <p class="productName text-capitalize my-1">beauty cream</p>
+              <span class=" font-weight-bold">$</span><span class="priceValue font-weight-bold">22.5</span>
+            </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3 d-flex align-items-center justify-content-center">
+  
+            <div class="collection-img mt-4 position-relative ">
+              <img src="images/coco-body-oil_prev_ui.png" class="w-100" height="200px;">
+              <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+              <span class="sale position-absolute text-white d-flex align-items-center justify-content-center">
+                
+                <i class="fas fa-shopping-cart text-secondary addToCart"data-product-id="4"></i></span>
+              <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+              
+              <div class="text-center">
+                <div class="rating mt-2"> 
+                  <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                  <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                  <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                  <span class="text-white"><i class="fas fa-star"></i></span>
+                  <span class="text-white"><i class="fas fa-star"></i></span>
+    
+                </div>
+                <p class="productName text-capitalize my-1">body oil</p>
+                <span class=" font-weight-bold">$</span><span class="priceValue font-weight-bold">30.5</span>
+              </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 col-xl-3 d-flex align-items-center justify-content-center">
+  
+              <div class="collection-img mt-4 position-relative ">
+                <img src="images/daily-moisturizer_prev_ui.png" class="w-100" height="200px;">
+                <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+                <span class="sale position-absolute text-white d-flex align-items-center justify-content-center">
+                 
+                <i class="fas fa-shopping-cart text-secondary addToCart"data-product-id="5"></i></span>
+                <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+                
+                <div class="text-center">
+                  <div class="rating mt-2">
+                    <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                    <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                    <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                    <span class="text-white"><i class="fas fa-star"></i></span>
+                    <span class="text-white"><i class="fas fa-star"></i></span>
+      
+                  </div>
+                  <p class="productName text-capitalize my-1">moisturizer cream</p>
+                  <span class=" font-weight-bold">$</span><span class="priceValue font-weight-bold">20.5</span>
+                </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4 col-xl-3 d-flex align-items-center justify-content-center">
+  
+                <div class="collection-img mt-4 position-relative ">
+                  <img src="images/deep-cleanser_prev_ui.png" class="w-100" height="200px;">
+                  <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+                  <span class="sale position-absolute text-white d-flex align-items-center justify-content-center">
+                     
+                    <i class="fas fa-shopping-cart text-secondary addToCart"data-product-id="6"></i></span>
+                  <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+                  
+                  <div class="text-center">
+                    <div class="rating mt-2">
+                      <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                      <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                      <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                      <span class="text-white"><i class="fas fa-star"></i></span>
+                      <span class="text-white"><i class="fas fa-star"></i></span>
+        
+                    </div>
+                    <p class="productName text-capitalize my-1">cleanser cream</p>
+                    <span class=" font-weight-bold">$</span><span class="priceValue font-weight-bold">22.5</span>
+                  </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3 d-flex align-items-center justify-content-center">
+  
+                  <div class="collection-img mt-4 position-relative ">
+                    <img src="images/given-skin-toner.png" class="w-100" height="200px;">
+                    <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+                    <span class="sale position-absolute text-white d-flex align-items-center justify-content-center">
+                      
+                      <i class="fas fa-shopping-cart text-secondary addToCart"data-product-id="7"></i></span>
+                    <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+                    
+                    <div class="text-center">
+                      <div class="rating mt-2">
+                        <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                        <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                        <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                        <span class="text-white"><i class="fas fa-star"></i></span>
+                        <span class="text-white"><i class="fas fa-star"></i></span>
+          
+                      </div>
+                      <p class="productName text-capitalize my-1">skin toner</p>
+                      <span class=" font-weight-bold">$</span><span class="priceValue font-weight-bold">22.5</span>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-4 col-xl-3 d-flex align-items-center justify-content-center">
+  
+                    <div class="collection-img mt-4 position-relative ">
+                      <img src="images/SkinDew_1_720x_prev_ui.png" class="w-100" height="200px;">
+                      <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+                      <span class="sale position-absolute text-white d-flex align-items-center justify-content-center">
+                        
+                        <i class="fas fa-shopping-cart text-secondary addToCart"data-product-id="8"></i></span>
+                      <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+                                   
+                      <div class="text-center">
+                        <div class="rating mt-2">
+                          <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                          <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                          <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                          <span class="text-white"><i class="fas fa-star"></i></span>
+                          <span class="text-white"><i class="fas fa-star"></i></span>
+            
+                        </div>
+                        <p class="productName text-capitalize my-1">skinDew cream</p>
+                        <span class=" font-weight-bold">$</span><span class="priceValue font-weight-bold">25.5</span>
+                      </div>
+                      </div>
+                    </div>
+                   </div>
+                 </div> 
+<!--end of collection-->
+<section id="featuredCollection">
+  <div class="container-fluid p-0 mt-5 vh-100">
+    <!-- <h2 class="text-center pt-5 text-capitalize"> featured product <span class="badge badge-secondary"></span></h2> -->
+    <div class="cproduct d-flex align-items-center justify-content-center">
+      <p class="position-relative">c</p>
+      <span = class="position-absolute">product</span>
+    </div>
+    <div class="card">
+      <div class="imgBox">
+        <img src="images/13346957_jar-13.jpg">
+        <img src="images/13346967_jar-25.jpg">
+      </div>
+      <div class="details d-flex align-items-center justify-content-center">
+        <div class="content">
+          <h2 class="text-center font-weight-bold">C Products</h2>
+          <p class="p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Quisquam dolor tempore veniam dignissimos quia necessitatibus 
+             ea doloremque error nihil quasi officiis non, quas architecto pariatur molestias
+              cum velit debitis nostrum!
+          </p>
+
+        </div>
+      </div>
+    </div>
+
+    <!--card2-->
+  
+    </div>
+
+
+  </div>
+</section>
+<!--fixed img-->
+<section id="fixedImg" class="">
+  <div class="fixedimg fixedimg1 mt-5 mb-5">
+    <h1 class="">Big Sale</h1>
+    <!-- <span class=""> up to</span><span class=""> 50%</span> -->
+    <h2 class="">. .  up to<span>50%</span></h2>
+  </div>
+</section>
+<!--end fixed img-->
+<!--Best Seller-->
+<section id="header" class="mt-5" >
+  <div class="container-fluid p-0" >
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" class="btn-span" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" 
+          aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" class="btn-span" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+      <button type="button" class="btn-span" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      
+
+  </div>
+   
+   
+   
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="collection-list p-5 row">
+        <div class="col-md-6 col-lg-4 col-xl-4 d-flex align-items-center justify-content-center">
+    
+          <div class="collection-img mt-4 position-relative ">
+            <img src="images/given-skin-toner.png" class="w-100" height="200px;">
+            <span class="sale position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+            <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-shopping-cart text-secondary"></i></span>
+            <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+             <span class="sale1 position-absolute"><img src="images/sale (1)_prev_ui.png" width="60px" height="60px"></span>
+            
+            <div class="text-center">
+              <div class="rating mt-2">
+                <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                <span class="text-white"><i class="fas fa-star"></i></span>
+                <span class="text-white"><i class="fas fa-star"></i></span>
+  
+              </div>
+              <p class="text-capitalize my-1">skin toner</p>
+              <span class="font-weight-bold">$22.5</span>
+            </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 col-xl-4 d-flex align-items-center justify-content-center">
+    
+            <div class="collection-img mt-4 position-relative ">
+              <img src="images/given-skin-toner.png" class="w-100" height="200px;">
+              <span class="sale position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+              <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-shopping-cart text-secondary"></i></span>
+              <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+             <span class="sale1 position-absolute"><img src="images/sale (1)_prev_ui.png" width="60px" height="60px"></span>
+              
+              <div class="text-center">
+                <div class="rating mt-2">
+                  <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                  <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                  <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                  <span class="text-white"><i class="fas fa-star"></i></span>
+                  <span class="text-white"><i class="fas fa-star"></i></span>
+    
+                </div>
+                <p class="text-capitalize my-1">skin toner</p>
+                <span class="font-weight-bold">$22.5</span>
+              </div>
+              </div>
+              </div>
+
+              <div class="col-md-6 col-lg-4 col-xl-4 d-flex align-items-center justify-content-center">
+    
+                <div class="collection-img mt-4 position-relative ">
+                  <img src="images/given-skin-toner.png" class="w-100" height="200px;">
+                  <span class="sale position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+                  <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-shopping-cart text-secondary"></i></span>
+                  <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+             <span class="sale1 position-absolute"><img src="images/sale (1)_prev_ui.png" width="60px" height="60px"></span>
+                  
+                  <div class="text-center">
+                    <div class="rating mt-2">
+                      <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                      <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                      <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                      <span class="text-white"><i class="fas fa-star"></i></span>
+                      <span class="text-white"><i class="fas fa-star"></i></span>
+        
+                    </div>
+                    <p class="text-capitalize my-1">skin toner</p>
+                    <span class="font-weight-bold">$22.5</span>
+                  </div>
+                  </div>
+                  </div>
+  
+        </div>
+      </div>
+     
+  
+
+   
+    <div class="carousel-item ">
+      <div class="collection-list p-5 row">
+        <div class="col-md-6 col-lg-4 col-xl-4 d-flex align-items-center justify-content-center">
+    
+          <div class="collection-img mt-4 position-relative ">
+            <img src="images/given-skin-toner.png" class="w-100" height="200px;">
+            <span class="sale position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+            <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-shopping-cart text-secondary"></i></span>
+            <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+            <span class="sale1 position-absolute"><img src="images/sale (1)_prev_ui.png" width="60px" height="60px"></span>
+            
+            <div class="text-center">
+              <div class="rating mt-2">
+                <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                <span class="text-white"><i class="fas fa-star"></i></span>
+                <span class="text-white"><i class="fas fa-star"></i></span>
+  
+              </div>
+              <p class="text-capitalize my-1">skin toner</p>
+              <span class="font-weight-bold">$22.5</span>
+            </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 col-xl-4 d-flex align-items-center justify-content-center">
+    
+            <div class="collection-img mt-4 position-relative ">
+              <img src="images/given-skin-toner.png" class="w-100" height="200px;">
+              <span class="sale position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+              <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-shopping-cart text-secondary"></i></span>
+              <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+             <span class="sale1 position-absolute"><img src="images/sale (1)_prev_ui.png" width="60px" height="60px"></span>
+              
+              <div class="text-center">
+                <div class="rating mt-2">
+                  <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                  <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                  <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                  <span class="text-white"><i class="fas fa-star"></i></span>
+                  <span class="text-white"><i class="fas fa-star"></i></span>
+    
+                </div>
+                <p class="text-capitalize my-1">skin toner</p>
+                <span class="font-weight-bold">$22.5</span>
+              </div>
+              </div>
+              </div>
+
+              <div class="col-md-6 col-lg-4 col-xl-4 d-flex align-items-center justify-content-center">
+    
+                <div class="collection-img mt-4 position-relative ">
+                  <img src="images/given-skin-toner.png" class="w-100" height="200px;">
+                  <span class="sale position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+                  <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-shopping-cart text-secondary"></i></span>
+                  <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+                  <span class="sale1 position-absolute"><img src="images/sale (1)_prev_ui.png" width="60px" height="60px"></span>
+                  
+                  <div class="text-center">
+                    <div class="rating mt-2">
+                      <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                      <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                      <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                      <span class="text-white"><i class="fas fa-star"></i></span>
+                      <span class="text-white"><i class="fas fa-star"></i></span>
+        
+                    </div>
+                    <p class="text-capitalize my-1">skin toner</p>
+                    <span class="font-weight-bold">$22.5</span>
+                  </div>
+                  </div>
+                  </div>
+        </div>
+      </div>
+     
+    <div class="carousel-item ">
+      <div class="collection-list p-5 row">
+        <div class="col-md-6 col-lg-4 col-xl-4 d-flex align-items-center justify-content-center">
+    
+          <div class="collection-img mt-4 position-relative ">
+            <img src="images/given-skin-toner.png" class="w-100" height="200px;">
+            <span class="sale position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+            <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-shopping-cart text-secondary"></i></span>
+            <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+            <span class="sale1 position-absolute"><img src="images/sale (1)_prev_ui.png" width="60px" height="60px"></span>
+            
+            <div class="text-center">
+              <div class="rating mt-2">
+                <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                <span class="text-white"><i class="fas fa-star"></i></span>
+                <span class="text-white"><i class="fas fa-star"></i></span>
+  
+              </div>
+              <p class="text-capitalize my-1">skin toner</p>
+              <span class="font-weight-bold">$22.5</span>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-4 d-flex align-items-center justify-content-center">
+    
+          <div class="collection-img mt-4 position-relative ">
+            <img src="images/given-skin-toner.png" class="w-100" height="200px;">
+            <span class="sale position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+            <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-shopping-cart text-secondary"></i></span>
+            <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+            <span class="sale1 position-absolute"><img src="images/sale (1)_prev_ui.png" width="60px" height="60px"></span>
+            
+            <div class="text-center">
+              <div class="rating mt-2">
+                <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                <span class="text-white"><i class="fas fa-star"></i></span>
+                <span class="text-white"><i class="fas fa-star"></i></span>
+  
+              </div>
+              <p class="text-capitalize my-1">skin toner</p>
+              <span class="font-weight-bold">$22.5</span>
+            </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-4 d-flex align-items-center justify-content-center">
+    
+            <div class="collection-img mt-4 position-relative ">
+              <img src="images/given-skin-toner.png" class="w-100" height="200px;">
+              <span class="sale position-absolute text-white d-flex align-items-center justify-content-center"><i class="far fa-heart text-secondary"></i></span>
+              <span class="like position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-shopping-cart text-secondary"></i></span>
+              <span class="share position-absolute text-white d-flex align-items-center justify-content-center"><i class="fas fa-share text-secondary"></i></span>
+             <span class="sale1 position-absolute"><img src="images/sale (1)_prev_ui.png" width="60px" height="60px"></span>
+              
+              <div class="text-center">
+                <div class="rating mt-2">
+                  <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                  <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                  <span class="text-white"><i class="fas fa-star text-black-50"></i></span>
+                  <span class="text-white"><i class="fas fa-star"></i></span>
+                  <span class="text-white"><i class="fas fa-star"></i></span>
+    
+                </div>
+                <p class="text-capitalize my-1">skin toner</p>
+                <span class="font-weight-bold">$22.5</span>
+              </div>
+              </div>
+            </div>
+    </div>
+    </div>
+    </div>
+ 
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+  data-bs-slide="prev">
+  <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+  <span class="visually-hidden"></span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+  data-bs-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="visually-hidden"></span>
+</button>
+  </div>
+</div>
+</div>
+</section>
+                   
+<!--end of Best Seller-->
+<!--footer-->
+<footer id="footer" class="badge-secondary py-5">
+  <div class="container">
+    <div class="row text-white gap-4">
+      <div class="col-md-6 col-lg-4">
+        <a class="text-uppercase text-decoration-none text-white" >Haya</a>
+        <p class="text-white mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem culpa qui, molestiae sint, rerum laboriosam numquam deleniti iste magnam eligendi possimus sit facilis placeat eaque veniam! Dolor similique architecto molestiae!</p>
+
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <h5 class="font-weight-light">Links</h5>
+        <ul class="">
+          <li class="my-3"><a href="#" class="text-white text-decoration-none">
+            <i class="fas fa-angle-right">Home</i>
+          </a></li>
+          <li class="my-3"><a href="#" class="text-white text-decoration-none">
+            <i class="fas fa-angle-right">Product</i>
+          </a></li>
+          <li class="my-3"><a href="#" class="text-white text-decoration-none">
+            <i class="fas fa-angle-right">Shop</i>
+          </a></li>
+          <li class="my-3"><a href="#" class="text-white text-decoration-none">
+            <i class="fas fa-angle-right"></i>
+          </a></li>
+          <li class="my-3"><a href="#" class="text-white text-decoration-none">
+            <i class="fas fa-angle-right"></i>
+          </a></li>
+
+        </ul>
+      </div>
+     <div class="col-md-6 col-lg-3">
+      <h5 class="font-weight-light">Contact Us</h5>
+      <div class="d-flex align-items-start justify-content-start">
+       <span class="mr-3 ml-3">
+        <i class="fas fa-map-marker-alt"></i> </span>
+        <span class="font-weight-light"> algfhds fgjkgk kjiyir bm mkiu mjoep</span>
+      </div>
+      <div class="d-flex align-items-start justify-content-start">
+        <span class="mr-3 ml-3">
+          <i class="fas fa-envelope"></i> </span>
+         <span class="font-weight-light"> Haya@gmail.com</span>
+       </div>
+       <div class="d-flex align-items-start justify-content-start">
+        <span class="mr-3 ml-3">
+          <i class="fas fa-phone"></i> </span>
+         <span class="font-weight-light"> 092666445</span>
+       </div>
+     </div>
+     
+     <div class="col-md-6 col-lg-3">
+      <h5 class="font-weight-light">Follow Us</h5>
+      <div>
+        <ul class="list-unstyled">
+          <li class="my-3"><a href="#" class="text-white text-decoration-none">
+            <i class="fab fa-facebook"></i>
+          </a></li>
+          <li class="my-3"><a href="#" class="text-white text-decoration-none">
+            <i class="fab fa-instagram"></i>
+          </a></li>
+          <li class="my-3"><a href="#" class="text-white text-decoration-none">
+            <i class="fab fa-twitter"></i>
+          </a></li>
+          
+        </ul>
+      </div>
+
+</div>
+    </div>
+
+  </div>
+
+</footer>
+
+<!--end of footer-->
+
+
+
+    <script src="js/script.js"></script>
+    <script src="js/shoppingCart.js"></script>
+    <script src="jquery.slim.min.js"></script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap-4.6.1-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

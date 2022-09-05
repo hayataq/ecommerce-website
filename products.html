@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Website-products</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="bootstrap-4.6.1-dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+          <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.html">
+            <img src="images/LOGO3.png" alt="" height="60px" width="40px">
+             <span class="text-uppercase font-weight-lighter <!--text-monospace--> ml-2">Haya</span>
+          </a>
+          <div class="order-lg-2">
+           
+            </button> 
+            <div  class="btn position-relative border-0 text-capitalize font-weight-bold" id="user-btn" data-toggle="modal" data-target="#myModal">
+              <i id="user-icon" class="fas fa-user"></i>
+            </div>
+            <div  class="btn position-relative mx-3" >
+              <i class="fas fa-search"></i>
+              <!-- <span class="position-absolute top-0 start-100 translate-middle badge badge-primary">5</span> -->
+            </div>
+            <div  class="btn position-relative shopping-cart">
+              <div class="sum-prices">
+              <i class="fas fa-shopping-cart shoppingCartButton"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge badge-primary" id="sum-prices"></span>
+            </div>
+          </div> 
+          
+         
+          
+             
+          </div>
+          <button class="navbar-toggler border-0 " type="button" data-toggle="collapse" data-target="#navbarMenue" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse order-lg-1" id="navbarMenue">
+            <ul class="navbar-nav mx-auto text-center">
+              <li class="nav-item px-2 py-2">
+                <a class="nav-link text-uppercase" href="index.html">Home</a>
+              </li>
+              <li class="nav-item px-2 py-2">
+                <a class="nav-link text-uppercase" href="products.html">shop</a>
+              </li>
+              <li class="nav-item px-2 py-2">
+                <a class="nav-link text-uppercase" href="#blogs">blog</a>
+              </li>
+              <li class="nav-item px-2 py-2">
+                <a class="nav-link text-uppercase" href="#about us">About</a>
+              </li>
+              <li class="nav-item px-2 py-2 border-0">
+                <a class="nav-link text-uppercase" href="#contact">contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--cart-->
+        <div class="producstOnCart hide">
+          <div class="overlay"></div>
+          <div class="top">
+              <button id="closeButton">
+                  <i class="fas fa-times-circle"></i>
+              </button>
+              <h3 class="font-weight-bold text-light">Cart</h3>
+          </div>
+          <ul id="buyItems">
+              <h4 class="text-white text-center empty">Your shopping cart is empty</h4>
+              <!-- <li class="buyItem">
+      <img src="Images/producs-images/Mobiles/galaxynote10.png">
+      <div>
+        <h5>Products Name</h5>
+        <h6>$199</h6>
+        <div>
+          <button>-</button>
+          <span class="countOfProduct">1</span>
+          <button>+</button>
+        </div>
+      </div>
+      </li> -->
+          </ul>
+          <button class="font-weight-bold btn clearCart hidden">Clear cart</button>
+          <button class="font-weight-bold btn checkout hidden">Check out</button>
+      </div>
+        <!---->
+      </nav>
+      <section id="section-product" class="">
+        <div class="container-fluid mt-5 p-0">
+           
+          <div class="products text-center text-dark text-capitalize">
+           <div class="discover position-absolute">Discover &nbsp;</div>
+           <div class="more position-absolute">More</div>
+           <div class="products1 position-absolute">Products</div>
+            
+         </div>
+
+        </div>
+       </section>
+
+       <section id="section-filter" class="">
+        <div class="container-fluid p-0">
+            <div class="wrapper">
+                <div id="search-container" class="d-flex justify-content-center">
+                    <input type="search" id="search-input" placeholder="Search Product name here ...">
+                    <button id="search">Search</button>
+                </div>
+                <div id="button" class="d-flex justify-content-center">
+                    <button class="button-value ml-2" onclick="filterProduct('all');">All</button>
+                    <button class="button-value ml-2" onclick="filterProduct('skincare');">Skincare</button>
+                    <button class="button-value ml-2" onclick="filterProduct('haircare');">Haircare</button>
+                    <button class="button-value ml-2" onclick="filterProduct('bodycare');">Bodycare</button>
+                    <button class="button-value ml-2">Sales</button>
+
+                </div>
+                <div id="products-filter">
+
+                </div>
+            </div>
+
+
+       </section>
+
+      
+    
+</body>
+<!-- <script src="js/script.js"></script> -->
+<script src="js/product-filter.js"></script>
+
+<script src="jquery.slim.min.js"></script>
+<script src="popper.min.js"></script>
+<script src="bootstrap-4.6.1-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+</html>
